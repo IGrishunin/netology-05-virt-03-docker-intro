@@ -1,13 +1,12 @@
 # netology-05-virt-03-docker-intro
 Задача 1.
 Собрал image с помощью такого Dockerfile
-
+```
 FROM nginx:1.29.0
 COPY index.html /usr/share/nginx/html/index.html
+```
 
-командой 
-`docker build -t nginx-netology:1.0.0 .`
-Предварительно создав в каталоге с Dockerfile указанный index.html
+командой `docker build -t nginx-netology:1.0.0`, предварительно создав в каталоге с Dockerfile указанный index.html
 
 В dockerhub не отправлял из-за отсутствия доступа. В качестве аналога сохранил image через docker save nginx-netology:1.0.0 -o nginx-netology:1.0.0.tar
 
@@ -31,12 +30,9 @@ COPY index.html /usr/share/nginx/html/index.html
 
 Задача 5.
 Был запущен именно compose.yaml, так как он является дефолтным манифестом на который смотрит compose, если его не существует, то compose ищет docker-compose.yaml, иначе путь к манифесту нужно указывать руками через флаг -f
-5.7 Warning означает, что compose обнаружил запущенные контейнеры в проекте, которые не описаны в compose файле. Docker compose понимает какие контейнеры принадлежат этому проекту по лейблам, которые присваиваются во время запуска через docker compose up -d и т.д. Далее во время следующих запусков/остановок и т.д. проверяет лейблы всех контейнеров в системе, чтобы соотнести контейнер к проекту. Лейблы можно посмотреть через 
-```
-docker inspect <container_name>
-```
+5.7 Warning означает, что compose обнаружил запущенные контейнеры в проекте, которые не описаны в compose файле. Docker compose понимает какие контейнеры принадлежат этому проекту по лейблам, которые присваиваются во время запуска через docker compose up -d и т.д. Далее во время следующих запусков/остановок и т.д. проверяет лейблы всех контейнеров в системе, чтобы соотнести контейнер к проекту. Лейблы можно посмотреть через `docker inspect <container_name>`
 Пример лейблов для registry
-
+```
 "Labels": {
                 "com.docker.compose.config-hash": "989fa70f9eb95655dd3d7f16579c4587565bba427e7c95bdcfa8914544f5dda6",
                 "com.docker.compose.container-number": "1",
@@ -48,9 +44,10 @@ docker inspect <container_name>
                 "com.docker.compose.project.working_dir": "/tmp/netology/docker/task5",
                 "com.docker.compose.service": "registry",
                 "com.docker.compose.version": ""
-            }
+}
+```
 
-Проект завершил через docker compose down
+Проект завершил через `docker compose down`
 
 <img width="1405" height="215" alt="Задача5-term2" src="https://github.com/user-attachments/assets/cd0e8bff-134e-45ef-8e31-5bc09ef8bcda" />
 <img width="1303" height="899" alt="Задача5-term1" src="https://github.com/user-attachments/assets/7b563898-3402-4355-8fb5-33e4a8898c58" />
@@ -58,9 +55,8 @@ docker inspect <container_name>
 <img width="1072" height="889" alt="Задача5-inspect" src="https://github.com/user-attachments/assets/bb3b3e57-4e66-40ce-a532-1ae48baaec16" />
 <img width="608" height="295" alt="Задача5-compose yaml" src="https://github.com/user-attachments/assets/cdd63ad2-920e-4f5e-8468-27935c0a83be" />
 
-```m
 compose.yaml
-
+```
 version: "3"
 
 include:
