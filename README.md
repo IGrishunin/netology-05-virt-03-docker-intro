@@ -53,7 +53,21 @@ COPY index.html /usr/share/nginx/html/index.html
 <img width="1675" height="721" alt="Задача5-portainer compose" src="https://github.com/user-attachments/assets/e16bec7b-aefa-4b79-9f43-843d1a278d0d" />
 <img width="1072" height="889" alt="Задача5-inspect" src="https://github.com/user-attachments/assets/bb3b3e57-4e66-40ce-a532-1ae48baaec16" />
 <img width="608" height="295" alt="Задача5-compose yaml" src="https://github.com/user-attachments/assets/cdd63ad2-920e-4f5e-8468-27935c0a83be" />
-<img width="576" height="249" alt="Задача5-term3" src="https://github.com/user-attachments/assets/9fab4352-4c4d-44fa-b2c7-23813d7993f8" />
+
+compose.yaml
+
+version: "3"
+
+include:
+  - docker-compose.yaml
+
+services:
+  portainer:
+    network_mode: host
+    image: portainer/portainer-ce:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
 
 
 
