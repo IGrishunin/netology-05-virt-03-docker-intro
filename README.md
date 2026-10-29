@@ -30,12 +30,31 @@ COPY index.html /usr/share/nginx/html/index.html
 
 Задача 5.
 Был запущен именно compose.yaml, так как он является дефолтным манифестом на который смотрит compose, если его не существует, то compose ищет docker-compose.yaml, иначе путь к манифесту нужно указывать руками через флаг -f
+5.7 Warning означает, что compose обнаружил запущенные контейнеры в проекте, которые не описаны в compose файле. Docker compose понимает какие контейнеры принадлежат этому проекту по лейблам, которые присваиваются во время запуска через docker compose up -d и т.д. Далее во время следующих запусков/остановок и т.д. проверяет лейблы всех контейнеров в системе, чтобы соотнести контейнер к проекту. Лейблы можно посмотреть через docker inspect
+Пример лейблов для registry
+
+"Labels": {
+                "com.docker.compose.config-hash": "989fa70f9eb95655dd3d7f16579c4587565bba427e7c95bdcfa8914544f5dda6",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:26b2eb03618e749084668eaff68cff8f81dda12d06ac641be7a6398b82a6f25b",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "task5",
+                "com.docker.compose.project.config_files": "/tmp/netology/docker/task5/docker-compose.yaml",
+                "com.docker.compose.project.working_dir": "/tmp/netology/docker/task5",
+                "com.docker.compose.service": "registry",
+                "com.docker.compose.version": ""
+            }
+
+Проект завершил через docker compose down
 
 <img width="1405" height="215" alt="Задача5-term2" src="https://github.com/user-attachments/assets/cd0e8bff-134e-45ef-8e31-5bc09ef8bcda" />
 <img width="1303" height="899" alt="Задача5-term1" src="https://github.com/user-attachments/assets/7b563898-3402-4355-8fb5-33e4a8898c58" />
 <img width="1675" height="721" alt="Задача5-portainer compose" src="https://github.com/user-attachments/assets/e16bec7b-aefa-4b79-9f43-843d1a278d0d" />
 <img width="1072" height="889" alt="Задача5-inspect" src="https://github.com/user-attachments/assets/bb3b3e57-4e66-40ce-a532-1ae48baaec16" />
 <img width="608" height="295" alt="Задача5-compose yaml" src="https://github.com/user-attachments/assets/cdd63ad2-920e-4f5e-8468-27935c0a83be" />
+<img width="576" height="249" alt="Задача5-term3" src="https://github.com/user-attachments/assets/9fab4352-4c4d-44fa-b2c7-23813d7993f8" />
+
 
 
 
