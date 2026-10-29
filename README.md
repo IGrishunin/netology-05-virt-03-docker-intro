@@ -5,7 +5,8 @@
 FROM nginx:1.29.0
 COPY index.html /usr/share/nginx/html/index.html
 
-командой docker build -t nginx-netology:1.0.0 .
+командой 
+`docker build -t nginx-netology:1.0.0 .`
 Предварительно создав в каталоге с Dockerfile указанный index.html
 
 В dockerhub не отправлял из-за отсутствия доступа. В качестве аналога сохранил image через docker save nginx-netology:1.0.0 -o nginx-netology:1.0.0.tar
@@ -30,7 +31,10 @@ COPY index.html /usr/share/nginx/html/index.html
 
 Задача 5.
 Был запущен именно compose.yaml, так как он является дефолтным манифестом на который смотрит compose, если его не существует, то compose ищет docker-compose.yaml, иначе путь к манифесту нужно указывать руками через флаг -f
-5.7 Warning означает, что compose обнаружил запущенные контейнеры в проекте, которые не описаны в compose файле. Docker compose понимает какие контейнеры принадлежат этому проекту по лейблам, которые присваиваются во время запуска через docker compose up -d и т.д. Далее во время следующих запусков/остановок и т.д. проверяет лейблы всех контейнеров в системе, чтобы соотнести контейнер к проекту. Лейблы можно посмотреть через docker inspect
+5.7 Warning означает, что compose обнаружил запущенные контейнеры в проекте, которые не описаны в compose файле. Docker compose понимает какие контейнеры принадлежат этому проекту по лейблам, которые присваиваются во время запуска через docker compose up -d и т.д. Далее во время следующих запусков/остановок и т.д. проверяет лейблы всех контейнеров в системе, чтобы соотнести контейнер к проекту. Лейблы можно посмотреть через 
+```
+docker inspect <container_name>
+```
 Пример лейблов для registry
 
 "Labels": {
@@ -54,6 +58,7 @@ COPY index.html /usr/share/nginx/html/index.html
 <img width="1072" height="889" alt="Задача5-inspect" src="https://github.com/user-attachments/assets/bb3b3e57-4e66-40ce-a532-1ae48baaec16" />
 <img width="608" height="295" alt="Задача5-compose yaml" src="https://github.com/user-attachments/assets/cdd63ad2-920e-4f5e-8468-27935c0a83be" />
 
+```m
 compose.yaml
 
 version: "3"
@@ -67,6 +72,7 @@ services:
     image: portainer/portainer-ce:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+```
 
 
 
