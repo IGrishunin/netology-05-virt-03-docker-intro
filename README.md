@@ -8,7 +8,7 @@ COPY index.html /usr/share/nginx/html/index.html
 
 командой `docker build -t nginx-netology:1.0.0`, предварительно создав в каталоге с Dockerfile указанный index.html
 
-В dockerhub не отправлял из-за отсутствия доступа. В качестве аналога сохранил image через docker save nginx-netology:1.0.0 -o nginx-netology:1.0.0.tar
+В dockerhub не отправлял из-за отсутствия доступа. В качестве аналога сохранил image через `docker save nginx-netology:1.0.0 -o nginx-netology:1.0.0.tar`
 
 
 Задача 2.
